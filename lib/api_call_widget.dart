@@ -21,7 +21,19 @@ const ApiCallWidget({ Key? key }) : super(key: key);
       future: fetchAPI(),
       builder: (BuildContext context , AsyncSnapshot<List<dynamic>> snapshot) {
         if(snapshot.hasData){
-          return Text(snapshot.data.toString());
+              // Text(snapshot.data.toString());
+          return ListView.builder(
+            itemCount: snapshot.data!.length,
+            itemBuilder: (BuildContext context,int index) {
+
+              return Card(
+                child: ListTile(
+                  title: Text('${snapshot.data![index]['name']}'),
+                  subtitle: Text('${snapshot.data![index]['email']}'),
+                ),
+              );
+
+            });
 
         } else {
           return const Center(child:CircularProgressIndicator());

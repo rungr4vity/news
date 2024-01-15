@@ -9,23 +9,29 @@ void main() {
 class Main extends StatelessWidget {
 const Main({ Key? key }) : super(key: key);
 
+
+
   @override
   Widget build(BuildContext context){
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: "My List",
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.black),
-        useMaterial3: true
+        colorScheme: ColorScheme.fromSeed(
+          
+          seedColor: Colors.yellow,
+          primary: const Color.fromARGB(178, 255, 235, 59),
+          secondary: Colors.black,),
+        useMaterial3: false
       ),
 
       home:Scaffold(
           appBar: AppBar(
-          title: Text("Welcome"),
+          title: const Text("Welcome"),
           elevation: 5,
           ),
 
-          body: ApiCallWidget(),
+          body: const ApiCallWidget(),
       ),
 
 
